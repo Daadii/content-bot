@@ -3,7 +3,6 @@ import {Message} from "discord.js";
 import ContentBot, {log4js} from "../index";
 
 export default class MessageReceivedEvent implements DiscordEvent {
-
     onEvent(e: Message): void {
         log4js.getLogger('MessageReceivedEvent').info(`${e.author.tag} (${e.channel}): ${e.content}`);
         if (e.content.charAt(0) === ContentBot.delimiter) {
@@ -16,5 +15,4 @@ export default class MessageReceivedEvent implements DiscordEvent {
             }
         }
     }
-
 }
