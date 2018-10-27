@@ -1,6 +1,7 @@
 import {Client} from "discord.js";
 import MessageReceivedEvent from "./events/message_received";
 import TestCommand from "./commands/test";
+import RausCommand from "./commands/raus";
 
 export const log4js = require('log4js');
 log4js.configure({
@@ -24,7 +25,8 @@ export default class ContentBot {
     private readonly logger = log4js.getLogger('ContentBot');
     public static readonly delimiter: string = '!';
     public static readonly commands = {
-        'test': new TestCommand()
+        'test': new TestCommand(),
+        'raus': new RausCommand()
     };
     public static readonly events = {
         'message': new MessageReceivedEvent()
