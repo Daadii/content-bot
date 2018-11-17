@@ -1,5 +1,5 @@
 import {Message} from "discord.js";
-import ContentBot, {log4js} from "../index";
+import ContentBot from "../index";
 import {Logger} from "log4js";
 
 export default interface DiscordCommand {
