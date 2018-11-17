@@ -4,7 +4,13 @@ import ContentBot, {log4js} from "../index";
 
 export default class MessageReceivedEvent implements DiscordEvent {
     onEvent(e: Message): void {
-        log4js.getLogger('MessageReceivedEvent').info(`${e.author.tag} (${e.channel}): ${e.content}`);
+        let logger = log4js.getLogger('MessageReceivedEvent');
+        logger.info(`${e.author.tag} (${e.channel}): ${e.content}`);
+
+        if (e.content == "<@504730507825905676>") {
+            e.reply("mein Delimiter ist: " + ContentBot.delimiter).catch(logger.error);
+        }
+
         if (e.content.charAt(0) === ContentBot.delimiter) {
             let parts = e.content.split(' ');
             let commands = ContentBot.commands;
