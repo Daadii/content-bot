@@ -4,6 +4,7 @@ import TestCommand from './commands/test';
 import RausCommand from './commands/raus';
 import I18n from './i18n';
 import LanguageCommand from "./commands/language";
+import HelpCommand from "./commands/help";
 
 // Load and configure Log4js Logger
 export const log4js = require('log4js');
@@ -59,7 +60,8 @@ export default class ContentBot {
     public static readonly commands = {
         'test': new TestCommand(),
         'raus': new RausCommand(),
-        'language': new LanguageCommand()
+        'language': new LanguageCommand(),
+        'help': new HelpCommand()
     };
     public static readonly events = {
         'message': new MessageReceivedEvent()
